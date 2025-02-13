@@ -6,9 +6,9 @@ from jmetal.util.termination_criterion import StoppingByEvaluations
 from OneZeroProblem import OneZeroProblem
 from GA import GA
 
-ARRAY_SIZE = 100
+ARRAY_SIZE = 1000
 POPULATION_SIZE = 100
-GENERATIONS = 2
+GENERATIONS = 1000
 
 def main():
     
