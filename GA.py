@@ -10,7 +10,8 @@ class GA(GeneticAlgorithm):
         mutation,
         crossover,
         selection,
-        termination_criterion
+        termination_criterion,
+        initial_population=None
     ):
         super().__init__(
             problem,
@@ -21,7 +22,8 @@ class GA(GeneticAlgorithm):
             selection,
             termination_criterion
         )
-        self.best_values = []   
+        self.best_values = []  
+        self.initial_population = initial_population
     
     def init_progress(self):
         super().init_progress()
@@ -32,3 +34,10 @@ class GA(GeneticAlgorithm):
         super().update_progress()
         
         self.best_values.append(self.solutions[0].objectives[0])
+        
+    def create_initial_solutions(self):
+        
+        if self.initial_population is None: 
+            return super().create_initial_solutions()
+        else:
+            return self.initial_population
